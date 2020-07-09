@@ -4,9 +4,6 @@ import org.junit.Test;
 
 /**
  * Created by yuchunfan on 2020/7/1.
- *
- * LeetCode 1116. 打印零与奇偶数
- * 难度 中等
  */
 public class TestZeroEvenOdd {
     @Test
@@ -62,7 +59,7 @@ public class TestZeroEvenOdd {
 
     class ZeroEvenOdd {
         private int n;
-        private Integer flag = 0;
+        private int flag = 0;
         private int num = 1;
 
         public ZeroEvenOdd(int n) {
@@ -88,9 +85,9 @@ public class TestZeroEvenOdd {
         }
 
         public void even(IntConsumer printNumber) throws InterruptedException {
-            for (int i = 0; i < n / 2 + n % 2; i++) {
+            for (int i = 0; i < n / 2; i++) {
                 synchronized (this) {
-                    while (flag != 1) {
+                    while (flag != 2) {
                         this.wait();
                     }
                     printNumber.accept(num++);
@@ -101,9 +98,9 @@ public class TestZeroEvenOdd {
         }
 
         public void odd(IntConsumer printNumber) throws InterruptedException {
-            for (int i = 0; i < n / 2; i++) {
+            for (int i = 0; i < n / 2 + n % 2; i++) {
                 synchronized (this) {
-                    while (flag != 2) {
+                    while (flag != 1) {
                         this.wait();
                     }
                     printNumber.accept(num++);
