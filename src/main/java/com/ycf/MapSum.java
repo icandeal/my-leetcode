@@ -8,7 +8,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * Created by yuchunfan on 2021/11/14
  */
 
-class MapSum {
+public class MapSum {
   Map<String, Integer> map;
 
   public MapSum() {

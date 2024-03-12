@@ -1,5 +1,6 @@
 package com.ycf;
 
+import com.ycf.MapSum;
 import org.junit.Test;
 
 /**
