@@ -35,6 +35,23 @@ public class LeetcodeUtils {
     return result;
   }
 
+  public static String[] parseStringArray(String arrayStr) {
+    JsonNode jsonNode;
+    try {
+      jsonNode = objectMapper.readTree(arrayStr);
+    } catch (JsonProcessingException e) {
+      throw new RuntimeException("数组解析失败");
+    }
+    int size = jsonNode.size();
+    String[] result = new String[size];
+    int i = 0;
+    Iterator<JsonNode> iterator = jsonNode.elements();
+    while (iterator.hasNext()) {
+      result[i++] = iterator.next().asText();
+    }
+    return result;
+  }
+
   public static int[][] castIntArrayArray(String arrayStr) {
     JsonNode jsonNode;
     try {
