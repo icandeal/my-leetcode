@@ -9,7 +9,7 @@ public class Solution {
 
   public static void main(String[] args) {
     Solution solution = new Solution();
-    int n = 3;
+    int n = 6;
     System.out.println(solution.climbStairs(n));
   }
 
